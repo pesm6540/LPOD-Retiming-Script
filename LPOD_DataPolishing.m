@@ -8,7 +8,6 @@
 % @date     January 7, 2026
 % @version  3.0.0
 % @log      Commented code & made more generalizable 
-
 %% Terminate
 clear 
 close all
@@ -17,9 +16,11 @@ close all
 PODID_Data = readtable("PODID.csv", 'Delimiter', {',', ' '}); 
 % NOTE: Depending on file size, you might have to do this differently so
 % your computer doesn't crash/wig out. 
-    % Method 1: try combining the csvs to a singular txt & then use a diff
+    % Method 1: Use command prompt (I recommend this wikihow just swap csv
+        % https://www.wikihow.com/Merge-Text-(.Txt)-Files-in-Command-Prompt)
+    % Method 2: try combining the csvs to a singular txt & then use a diff
         % function
-    % Method 2: I had to do it manually once with a for loop, and it does 
+    % Method 3: I had to do it manually once with a for loop, and it does 
         % suck for sure, cannot lie. But just get it to import them all once & 
         % then combine those lads fr 
 
@@ -62,7 +63,7 @@ for i = 1:1:iterate
     end
 end
 
-% Replace DateTime varibable & replace with new_date (no repeats!)
+% Replace DateTime variable & replace with new_date (no repeats!)
 LPOD = removevars(LPOD, 'DateTime');
 LPOD = addvars(LPOD, new_date, 'Before', 'Fig1');
 
@@ -71,4 +72,4 @@ writetable(LPOD, 'POD_YYYY-MM-DD.csv');
 
 %% In case you want to check your plots quickly...
 % Makes table --> timetable because quick plotting is easier with this
-LPODB2_tt = table2timetable(LPOD);
+% LPODB2_tt = table2timetable(LPOD);
