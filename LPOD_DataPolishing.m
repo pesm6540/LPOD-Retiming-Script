@@ -36,7 +36,7 @@ LPOD = removevars(PODID_Data, {'Var1', 'Var2', 'Var3', 'Var4', 'Var5', 'Var6', '
 LPOD = addvars(LPOD, DT, 'Before', 'Var11');
 
 % Create specific variable names
-names = {'DateTime', 'Fig1','Fig2','Fig3','AS_Work','AS_Aux','Temp','RH'};
+names = {'DateTime', 'Fig1','Fig2','Fig3','AS_Aux','AS_Work','Temp','RH'};
 LPOD.Properties.VariableNames = names;
 
 % This is a good save point if you need to tweak the import at all so you 
